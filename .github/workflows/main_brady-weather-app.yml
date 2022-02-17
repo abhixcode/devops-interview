@@ -33,7 +33,21 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+  
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@master
+
+      # Runs a single command using the runners shell
+      - name: Run docker command on VM
+        run: |
+          docker run -v $(pwd)/postman:/etc/newman -t postman/newman:latest run "accuweather.postman_collection.json" --reporters="cli"
+  
   deploy:
     runs-on: windows-latest
     needs: build

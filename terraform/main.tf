@@ -52,3 +52,4 @@ resource "azurerm_app_service" "abhi-brady-appsvc" {
     manual_integration = true
     use_mercurial = false
   }
+}

@@ -46,10 +46,10 @@ resource "azurerm_app_service" "abhi-brady-appsvc" {
   location            = azurerm_resource_group.abhi-weatherapp-rg.location
   resource_group_name = azurerm_resource_group.abhi-weatherapp-rg.name
   app_service_plan_id = azurerm_app_service_plan.abhi-brady-svcplan.id
-  source_control {
-    repo_url           = "https://github.com/abhixcode/devops-interview"
-    branch             = "main"
-    manual_integration = true
-    use_mercurial = false
-  }
+  #source_control {
+  #  repo_url           = "https://github.com/abhixcode/devops-interview"
+  #  branch             = "main"
+  #  manual_integration = true
+  #  use_mercurial = false
+  #}
 }
